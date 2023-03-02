@@ -23,11 +23,13 @@ abstract class DAO extends PDO
             . ";dbname=" . $_ENV['db']['database'];
 
             $this->conexao = new PDO(
-            $dsn, $_ENV['db']['user'],$_ENV['db']['pass'], $options);
+            $dsn, $_ENV['db']['user']
+            ,$_ENV['db']['pass'],
+             $options);
         }
-        catch (Exception $e)
+        catch (PDOException $e)
         {
-
+            throw new Exception("Ocorreu um erro, tente conectar ao MySql", 0, $e);
         }
     }
 }
