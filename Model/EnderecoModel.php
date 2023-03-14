@@ -25,4 +25,26 @@ class EnderecoModel extends Model
             throw $e;
         }
     }
+    public function getLogradouroByCep (int $cep)
+    {
+        try
+        {
+            $dao = new EnderecoDAO();
+        }catch(Exception $e)
+        {
+            throw $e;
+        }
+    }
+    public function getCepByLogradouro ($logradouro)
+    {
+        try
+        {
+             $dao = new EnderecoDAO();
+
+             $this->rows = $dao->selectCepByLoradouro($logradouro);
+
+        }catch(Exception $e) {
+            echo $e-> getMessage();
+        }
+    }
 }

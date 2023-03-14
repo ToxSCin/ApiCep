@@ -2,6 +2,8 @@
 
 namespace ApiCep\DAO;
 use ApiCep\Model\EnderecoModel;
+use ApiCep\DAO\DAO;
+use Exception;
 
 class EnderecoDAO extends DAO
 {
@@ -75,4 +77,5 @@ class EnderecoDAO extends DAO
         $stmt->execute([':q' => "%" , $logradouro . "%"]); //
         return $stmt->fetchAll(DAO::FETCH_CLASS);
     }
+    
 }
