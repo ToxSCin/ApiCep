@@ -3,7 +3,7 @@
 namespace ApiCep\Model;
 
 use ApiCep\DAO\EnderecoDAO as DAOEnderecoDAO;
-use App\DAO\EnderecoDAO;
+use ApiCep\DAO\EnderecoDAO;
 use Exception;
 
 class EnderecoModel extends Model
@@ -37,14 +37,17 @@ class EnderecoModel extends Model
     }
     public function getCepByLogradouro ($logradouro)
     {
+       
         try
         {
-             $dao = new EnderecoDAO();
+            $dao = new EnderecoDAO();
 
-             $this->rows = $dao->selectCepByLoradouro($logradouro);
-
-        }catch(Exception $e) {
-            echo $e-> getMessage();
+            $this->rows = $dao->selectCepByLogradouro($logradouro);
         }
+        catch(Exception $e)
+        {
+            echo $e->getMessage();
+        }
+       
     }
 }
